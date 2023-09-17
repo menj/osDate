@@ -1,0 +1,1 @@
+<img src="#SiteUrl#templates/#SkinName#/images/page_hdr_left.jpg" alt="" width="77" height="25" />

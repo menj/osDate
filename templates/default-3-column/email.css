@@ -1,0 +1,88 @@
+body {
+	font-family: sans-serif, Helvetica, Verdana, Arial;
+	font-size: 11px;
+	color: #434548;
+	background-color: #ffffff;
+	padding: 0;
+	margin: 0;
+
+}
+
+/* hides text-align to the left from IE, because the next 2 rules doesn't apply to IE */
+ html>body td {
+  text-align: left;
+}
+
+html>body td[align="center"] {
+  text-align: center;
+}
+
+html>body td[align=center] {
+  text-align: center;
+}
+
+html>body td[align=right] {
+  text-align: right;
+}
+
+html>body td[align="right"] {
+  text-align: right;
+}
+
+*[align="center"] {
+  text-align: center;
+}
+
+*[align=center] {
+  text-align: center;
+}
+
+*[align="right"] {
+  text-align: right;
+}
+
+*[align=right] {
+  text-align: right;
+}
+td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.module_detail_inside {
+	font-size: 11px;
+	font-weight: normal;
+	background-color: #F8FBFF;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #D4E1F6;
+	border-right-color: #D4E1F6;
+	border-bottom-color: #D4E1F6;
+	border-left-color: #D4E1F6;
+
+}
+
+.module_head {
+	background-color: #4278D3;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+
+}
+
+.oddrow, .addrow {
+	background-color: #FEFEFE;
+}
+
+.evenrow {
+	background-color: #EFEFEF;
+}
+.newshead{
+	color: #4278D3;
+	font-weight: bold;
+}

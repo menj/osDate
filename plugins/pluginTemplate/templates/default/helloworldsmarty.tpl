@@ -1,0 +1,1 @@
+<b>Smarty</b>: {$lang.hello} {$lang.world}

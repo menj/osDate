@@ -1,0 +1,1 @@
+<div align="center"><img src="getsnap.php?id={$smarty.request.id}&amp;picid={$smarty.request.picid}&amp;typ=pic&amp;album_id={$smarty.request.album_id}"></div>

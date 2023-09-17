@@ -1,0 +1,1 @@
+<img src="#SiteUrl#templates/#SkinName#/images/blue_window_3_bars.jpg" alt="" width="77" height="25" />

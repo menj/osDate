@@ -1,0 +1,1 @@
+<h2>Admin</h2>: {$lang.hello} {$lang.world}

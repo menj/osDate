@@ -1,0 +1,2871 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class modPlugin</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">
+<h2 class="class-name">Class modPlugin</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description"><strong>modPlugin</strong> <em>Extend your OsDate capabilities</em><br /></p>
+<p class="description"><p><br />   modPlugin is an API alowing you to extend OsDate's capabilities without modifing OsDate itself.  Plugins can be written in packages that can be distributed, uploaded and installed from a single zip file.<br />   <br />Tables to be used exclusively for the plugin should be named in the format DB_PREFIX_PluginName_tableName. (DB_PREFIX is the table prefix given in configs/config.php. PluginName is the name of the plugin and tableName is the name of the table.) e.g. osdate_speedDater_speeddater. <br />  <br />   <strong>Plugin File Structure</strong><br />   <br />   pluginTemplate - Plugin Directory.  Must be named the same as the plugin.<br />   pluginTemplate/language - Language directory.  Containts language definitions.<br />   pluginTemplate/language/lang_spanish<br />   pluginTemplate/language/lang_spanish/lang_main.php - Spanish language definitions.<br />   pluginTemplate/language/lang_german<br />   pluginTemplate/language/lang_german/lang_main.php - German language definitions.<br />   pluginTemplate/language/lang_english<br />   pluginTemplate/language/lang_english/lang_main.php - English language definitions.<br />   pluginTemplate/language/lang_portuguese<br />   pluginTemplate/language/lang_portuguese/lang_main.php - Portuguese language definitions.<br />   pluginTemplate/language/lang_greek<br />   pluginTemplate/language/lang_greek/lang_main.php - Greek language definitions.<br />   pluginTemplate/language/lang_turkish<br />   pluginTemplate/language/lang_turkish/lang_main.php - Turkish language definitions.<br />   pluginTemplate/language/lang_romanian<br />   pluginTemplate/language/lang_romanian/lang_main.php - Romanian language definitions.<br />   pluginTemplate/language/lang_russian<br />   pluginTemplate/language/lang_russian/lang_main.php - Russian language definitions.<br />   pluginTemplate/language/lang_dutch<br />   pluginTemplate/language/lang_dutch/lang_main.php - Dutch language definitions.<br />   pluginTemplate/language/lang_french<br />   pluginTemplate/language/lang_french/lang_main.php - French language definitions.<br />   pluginTemplate/images - Plugin specific images.<br />   pluginTemplate/sql<br />   pluginTemplate/sql/install.sql - Table creation SQL.<br />   pluginTemplate/includes<br />   pluginTemplate/includes/default_config.php - Default configuration values.<br />   pluginTemplate/templates - Plugin templage directory.<br />   pluginTemplate/templates/default<br />   pluginTemplate/templates/default/helloworld.tpl - User template.<br />   pluginTemplate/templates/default/admin<br />   pluginTemplate/templates/default/admin/helloworld.tpl - Admin template<br />   pluginTemplate/libs - Classes related to plugin.<br />   pluginTemplate/libs/pluginTemplate.php - Main plugin class.  Must be named the same as the plugin.<br />   <br />   <br />   <strong>Displaying Content</strong><br />   <br />   There are four methods to display content on the OsDate site, displayPluginPage, displayPluginContent, displayLeftCol and displayMain.  These methods return HTML to be displayed.  The modPlugin logic handles the actual display of the HTML.<br />   <br />   <br />   <strong>displayPluginPage</strong><br />   <br />   displayPluginPage is used when you need a new page on the osdate site.  HTML returned by displayPluginPage is displayed in the main content area of OsDate.  When you set the $user_menu_text variable to the text to appear on the menu, and set user_menu_appear to true, a link to your page will appear on the user menu.  You can also access the page directly using the link plugin.php?plugin=pluginTemplate (assuming your plugin naem is pluginTemplate).<br />   <br />   <br />   <strong>displayPluginContent</strong><br />   <br />   displayPluginContent is used when you need a new page with only your content.  For example if you need a popup window that displays a simple message.  The HTML returned by displayPluginContent is displayed on the new page.  You can also access the page directly using the link pluginraw.php?plugin=pluginTemplate (assuming your plugin naem is pluginTemplate).<br />   <br />   <br />   <strong>displayLeftCol</strong><br />   <br />   displayLeftCol will display your content in the left column of OsDate.  The HTML returned by displayLeftCol is displayed.<br />   <br />   <br />   <strong>displayMain</strong><br />   <br />   displayMain will display your content in the main content area of OsDate below the existing main content.  The HTML returned by displayMain is displayed.<br />   <br />   <br />   <strong>Getting Started</strong><br />   <br />   To get started on your first plugin, make a directory inside the plugins directory the name of your new plugin (ex. mkdir plugins/myNewPlugin).  Then copy all the files in the plugins/pluginTemplate directory to your new directory (ex. cp -r plugins/pluginTemplate/. plugins/myNewPlugin/).  Now rename pluginTemplate.php to the name of your plugin (ex. mv pluginTemplate.php myNewPlugin.php.  Lastly, open myNewPlugin.php and rename all instances of pluginTemplate to myNewPlugin.<br />   <br />   Now that you have all the files you need, start writing your code using the methods and  documentation listed below.<br />   <br /></p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">author:</span> Down Home Consutling (www.DownHomeConsulting.com)</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_modPlugin_php.html">/modPlugin.php</a> (line <span class="field">83</span>)
+		</p>
+
+
+		<pre></pre>
+
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							|
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+								<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$lang" title="details" class="var-name">$lang</a>
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">
+			<div class="method-summary">
+
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#modPlugin" title="details" class="method-name">modPlugin</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#clrErrorMessage" title="details" class="method-name">clrErrorMessage</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#displayLeftCol" title="details" class="method-name">displayLeftCol</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#displayMain" title="details" class="method-name">displayMain</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#displayPluginAdminPage" title="details" class="method-name">displayPluginAdminPage</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#displayPluginContent" title="details" class="method-name">displayPluginContent</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#displayPluginPage" title="details" class="method-name">displayPluginPage</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getAdminMenuEntry" title="details" class="method-name">getAdminMenuEntry</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getErrorMessage" title="details" class="method-name">getErrorMessage</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getImagesDir" title="details" class="method-name">getImagesDir</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getIncludeDir" title="details" class="method-name">getIncludeDir</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getLanguageDir" title="details" class="method-name">getLanguageDir</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getLibsDir" title="details" class="method-name">getLibsDir</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPluginDir" title="details" class="method-name">getPluginDir</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getSqlDir" title="details" class="method-name">getSqlDir</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getTemplatesDir" title="details" class="method-name">getTemplatesDir</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getUserMenuEntry" title="details" class="method-name">getUserMenuEntry</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modAddEvent" title="details" class="method-name">modAddEvent</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modAddProfileRating" title="details" class="method-name">modAddProfileRating</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modAddRec" title="details" class="method-name">modAddRec</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modAvailablePermissions" title="details" class="method-name">modAvailablePermissions</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#modCheckStatus" title="details" class="method-name">modCheckStatus</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modClrBan" title="details" class="method-name">modClrBan</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modDeleteRows" title="details" class="method-name">modDeleteRows</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$search</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modEditRec" title="details" class="method-name">modEditRec</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetAdmin" title="details" class="method-name">modGetAdmin</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetAffiliateStats" title="details" class="method-name">modGetAffiliateStats</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetAlbum" title="details" class="method-name">modGetAlbum</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetAll" title="details" class="method-name">modGetAll</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$search</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetAllAlbums" title="details" class="method-name">modGetAllAlbums</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span> = <span class="var-default">false</span>])
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetAllFeatured" title="details" class="method-name">modGetAllFeatured</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetAllLanguages" title="details" class="method-name">modGetAllLanguages</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetAllPictures" title="details" class="method-name">modGetAllPictures</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetAllUsers" title="details" class="method-name">modGetAllUsers</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetArticles" title="details" class="method-name">modGetArticles</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetBanners" title="details" class="method-name">modGetBanners</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#modGetBannerStats" title="details" class="method-name">modGetBannerStats</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetBlogInfo" title="details" class="method-name">modGetBlogInfo</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetBlogPost" title="details" class="method-name">modGetBlogPost</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetCalendars" title="details" class="method-name">modGetCalendars</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetErrorMessage" title="details" class="method-name">modGetErrorMessage</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetEvents" title="details" class="method-name">modGetEvents</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array|string</span>
+										<a href="#modGetLang" title="details" class="method-name">modGetLang</a>
+											([<span class="var-type">string|void</span>&nbsp;<span class="var-name">$key1</span> = <span class="var-default">false</span>], [<span class="var-type">string|void</span>&nbsp;<span class="var-name">$key2</span> = <span class="var-default">false</span>])
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#modGetLoadedLanguage" title="details" class="method-name">modGetLoadedLanguage</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetLoggedInAdmin" title="details" class="method-name">modGetLoggedInAdmin</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetLoggedInUser" title="details" class="method-name">modGetLoggedInUser</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetMembershipPriviledges" title="details" class="method-name">modGetMembershipPriviledges</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetNews" title="details" class="method-name">modGetNews</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetPaymentMods" title="details" class="method-name">modGetPaymentMods</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#modGetPicture" title="details" class="method-name">modGetPicture</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetPlugin" title="details" class="method-name">modGetPlugin</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetPolls" title="details" class="method-name">modGetPolls</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetPollStats" title="details" class="method-name">modGetPollStats</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetProfile" title="details" class="method-name">modGetProfile</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetProfileRatings" title="details" class="method-name">modGetProfileRatings</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetRow" title="details" class="method-name">modGetRow</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$search</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string|int</span>
+										<a href="#modGetSetting" title="details" class="method-name">modGetSetting</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#modGetSkinName" title="details" class="method-name">modGetSkinName</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetTransaction" title="details" class="method-name">modGetTransaction</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetUser" title="details" class="method-name">modGetUser</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#modGetUserTransactions" title="details" class="method-name">modGetUserTransactions</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modHasPermission" title="details" class="method-name">modHasPermission</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modIsBanned" title="details" class="method-name">modIsBanned</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modIsFeatured" title="details" class="method-name">modIsFeatured</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modIsLoggedIn" title="details" class="method-name">modIsLoggedIn</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modIsZipLoaded" title="details" class="method-name">modIsZipLoaded</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modLogout" title="details" class="method-name">modLogout</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modMakeFeatured" title="details" class="method-name">modMakeFeatured</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modRemoveAlbum" title="details" class="method-name">modRemoveAlbum</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modRemoveBlogComment" title="details" class="method-name">modRemoveBlogComment</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modRemoveBlogPost" title="details" class="method-name">modRemoveBlogPost</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modRemovePicture" title="details" class="method-name">modRemovePicture</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modSendMail" title="details" class="method-name">modSendMail</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modSendMessage" title="details" class="method-name">modSendMessage</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modSendWink" title="details" class="method-name">modSendWink</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modSetBan" title="details" class="method-name">modSetBan</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#modSetLoadedLanguage" title="details" class="method-name">modSetLoadedLanguage</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#modSetNews" title="details" class="method-name">modSetNews</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#modSiteUrl" title="details" class="method-name">modSiteUrl</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#modSmartyAssign" title="details" class="method-name">modSmartyAssign</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$variable</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#modSmartyFetch" title="details" class="method-name">modSmartyFetch</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>)
+									</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+
+
+										|
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+
+					</div>
+		<div class="info-box-body">
+			<a name="var$lang" id="$lang"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$lang</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">96</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the language phrases for the active language in an associative array</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+
+
+
+
+</div>
+
+		</div>
+	</div>
+
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodmodPlugin" id="modPlugin"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">Constructor modPlugin</span> (line <span class="line-number">126</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor, called by modOsDate to initialize plugin class.  There should never be a need to call this directly.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			modPlugin
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodclrErrorMessage" id="clrErrorMessage"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">clrErrorMessage</span> (line <span class="line-number">1833</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clears all error messages</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			clrErrorMessage
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methoddisplayLeftCol" id="displayLeftCol"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">displayLeftCol</span> (line <span class="line-number">1968</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the content that will appear in the left column of a page. Override this method in yor class if you have content that needs displayed in the left column.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> - html that will be displayed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			displayLeftCol
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methoddisplayMain" id="displayMain"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">displayMain</span> (line <span class="line-number">1978</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the content that will appear in the main content area of the page.  This content will appear after the existing main content.  Override this method in yor class if you have content that needs displayed in after the existing main content.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> - html that will be displayed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			displayMain
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methoddisplayPluginAdminPage" id="displayPluginAdminPage"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">displayPluginAdminPage</span> (line <span class="line-number">2003</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the content to display a custom admin page.  Override this method in your class if you need a new page for your plugin.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> - html that will be displayed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			displayPluginAdminPage
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methoddisplayPluginContent" id="displayPluginContent"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">displayPluginContent</span> (line <span class="line-number">2019</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">WARNING: USER IS NOT VALIDATED HERE.  BE CAREFUL<br />  Returns all the html for a page.  Override this method in your class if you need a page with only your content.  Often used in downloads</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> - html that will be displayed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			displayPluginContent
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methoddisplayPluginPage" id="displayPluginPage"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">displayPluginPage</span> (line <span class="line-number">1988</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the content to display a custom user page.  Override this method in your class if you need a new page for your plugin.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> - html that will be displayed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			displayPluginPage
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetAdminMenuEntry" id="getAdminMenuEntry"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">getAdminMenuEntry</span> (line <span class="line-number">1949</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the admin menu entry for a plugin.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getAdminMenuEntry
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetErrorMessage" id="getErrorMessage"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">getErrorMessage</span> (line <span class="line-number">1823</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns all error messages</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> - associative array of messages</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getErrorMessage
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetImagesDir" id="getImagesDir"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">getImagesDir</span> (line <span class="line-number">1898</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the images directory for this plugin</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getImagesDir
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetIncludeDir" id="getIncludeDir"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">getIncludeDir</span> (line <span class="line-number">1888</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the includes directory for this plugin</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getIncludeDir
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetLanguageDir" id="getLanguageDir"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">getLanguageDir</span> (line <span class="line-number">1908</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the language directory for this plugin</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getLanguageDir
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetLibsDir" id="getLibsDir"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">getLibsDir</span> (line <span class="line-number">1920</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the libs directory for this plugin</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getLibsDir
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetPluginDir" id="getPluginDir"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">getPluginDir</span> (line <span class="line-number">1878</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the main directory for this plugin</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPluginDir
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetSqlDir" id="getSqlDir"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">getSqlDir</span> (line <span class="line-number">2030</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the sql directory for this plugin</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getSqlDir
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetTemplatesDir" id="getTemplatesDir"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">getTemplatesDir</span> (line <span class="line-number">2040</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the sql directory for this plugin</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getTemplatesDir
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetUserMenuEntry" id="getUserMenuEntry"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">getUserMenuEntry</span> (line <span class="line-number">1930</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the user menu entry for a plugin.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getUserMenuEntry
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodAddEvent" id="modAddEvent"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modAddEvent</span> (line <span class="line-number">899</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">add an event to calendar X, event details specified in parameter</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modAddEvent
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid - user id</li><li>event</li><li>description</li><li>recurring  - 1 or 0</li><li>recuroption -  (0 = none, 1 = days, 2 = weeks, 3 = months, 4 = years)</li><li>calendarid</li><li>enabled  - Y or N</li><li>timezone</li><li>datetime_from</li><li>datetime_to</li><li>private_to</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodAddProfileRating" id="modAddProfileRating"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modAddProfileRating</span> (line <span class="line-number">1252</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">adds a profile rating for user X</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modAddProfileRating
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid - id of user</li><li>ratingid (optional)</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodAddRec" id="modAddRec"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modAddRec</span> (line <span class="line-number">2201</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a record from the provided table with the provided data.  The table  must belong to the plugin or this will return false.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modAddRec
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: the name of the table to retrieve</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: keys are field names and the value is the value to match (ex.  to add field first_name with 'bob' of 5 use $data['first_name'] = 'bob').</span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodAvailablePermissions" id="modAvailablePermissions"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modAvailablePermissions</span> (line <span class="line-number">242</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return a list of permissions available to a particular user</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modAvailablePermissions
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid - user id of the user to logout</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodCheckStatus" id="modCheckStatus"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modCheckStatus</span> (line <span class="line-number">624</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the registration status of a particular user</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			modCheckStatus
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid - user id of the user</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodClrBan" id="modClrBan"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modClrBan</span> (line <span class="line-number">538</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">clear a ban of user X for user Y</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modClrBan
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid - user id of the user to remove ban</li><li>type - type of ban to remove, B for ban, H for hotlist, F for buddy</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodDeleteRows" id="modDeleteRows"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modDeleteRows</span> (line <span class="line-number">2115</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Deletes record(s) from the provided table using the search.  The table  must belong to the plugin or this will return false.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modDeleteRows
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$search</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: the name of the table</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$search</span><span class="var-description">: keys are field names and the value is the value to match (ex.  to find id of 5 use $search['id'] = 5)</span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodEditRec" id="modEditRec"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modEditRec</span> (line <span class="line-number">2174</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Edits a record from the provided table with the provided data.  The table  must belong to the plugin or this will return false.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modEditRec
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$keys</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: the name of the table to retrieve</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: keys are field names and the value is the value to update (ex.  to update field first_name with 'bob' of 5 use $data['first_name'] = 'bob').</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$keys</span><span class="var-description">: the record to update.  (ex.  to update id 5, include $key['id'] = 5).</span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetAdmin" id="modGetAdmin"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetAdmin</span> (line <span class="line-number">308</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a admin's record</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetAdmin
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>adminid -  id of the admin's record to get</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetAffiliateStats" id="modGetAffiliateStats"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetAffiliateStats</span> (line <span class="line-number">1100</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">gets an array of all affiliate statistics for affiliate X</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetAffiliateStats
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetAlbum" id="modGetAlbum"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetAlbum</span> (line <span class="line-number">771</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the picture album that match the provided keys.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetAlbum
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>id - id of the album</li><li>username - username of the album owner</li><li>name - name of the album</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetAll" id="modGetAll"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetAll</span> (line <span class="line-number">2145</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets all records from the provided table using the search.  The table  must belong to the plugin or this will return false.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> - multidimensional array.  The first level the index.  Second level a associtive array of the records fields and values.<br /></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetAll
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$search</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: the name of the table to retrieve</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$search</span><span class="var-description">: keys are field names and the value is the value to match (ex.  to find id of 5 use $search['id'] = 5)</span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetAllAlbums" id="modGetAllAlbums"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetAllAlbums</span> (line <span class="line-number">750</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns all available picture albums or if params are provide, returns all the albums that match those keys.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetAllAlbums
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span> = <span class="var-default">false</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>username - username of the album owner</li><li>name - name of the album</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetAllFeatured" id="modGetAllFeatured"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetAllFeatured</span> (line <span class="line-number">1008</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns all featured user profiles</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> user ids of featured users</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetAllFeatured
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetAllLanguages" id="modGetAllLanguages"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetAllLanguages</span> (line <span class="line-number">924</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns all configured languages</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetAllLanguages
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetAllPictures" id="modGetAllPictures"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetAllPictures</span> (line <span class="line-number">669</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns all available pictures for a user / album</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> <br />  Example:<br /><br />  Array<br />  (<br />      [0] =&gt; Array<br />          (<br />              [id] =&gt; 37<br />              [userid] =&gt; 104<br />              [picno] =&gt; 1<br />              [ins_time] =&gt; 1154301578<br />              [active] =&gt; Y<br />              [picext] =&gt; jpg<br />              [tnext] =&gt; jpg<br />              [album_id] =&gt; 0<br />          )<br />  <br />      [1] =&gt; Array<br />          (<br />              [id] =&gt; 38<br />              [userid] =&gt; 104<br />              [picno] =&gt; 2<br />              [ins_time] =&gt; 1154301599<br />              [active] =&gt; Y<br />              [picext] =&gt; jpg<br />              [tnext] =&gt; jpg<br />              [album_id] =&gt; 0<br />          )<br />  )<br /></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetAllPictures
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid - user id of the user</li><li>album_id  - id of the album</li><li>active  - Y or N</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetAllUsers" id="modGetAllUsers"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetAllUsers</span> (line <span class="line-number">442</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets all user's records matching provided parameters</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetAllUsers
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with any of the following keys:<br /><ul><li>sort - field to sort by and direction (ex. &quot;username ASC&quot; or &quot;username DESC&quot;</li><li>limit - max number of records to return</li><li>id</li><li>active,</li><li>username</li><li>lastvisit</li><li>regdate</li><li>level</li><li>timezone</li><li>allow_viewonline</li><li>rank</li><li>email</li><li>country</li><li>actkey</li><li>firstname</li><li>lastname</li><li>gender</li><li>lookgender</li><li>lookagestart</li><li>lookageend</li><li>address_line1</li><li>address_line2</li><li>state_province</li><li>county</li><li>city</li><li>zip</li><li>birth_date</li><li>lookcountry</li><li>lookstate_province</li><li>lookcounty</li><li>lookcity</li><li>lookzip</li><li>lookradius</li><li>radiustype</li><li>picture</li><li>status</li><li>levelend</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetArticles" id="modGetArticles"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetArticles</span> (line <span class="line-number">1282</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get all current articles</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetArticles
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetBanners" id="modGetBanners"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetBanners</span> (line <span class="line-number">1066</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">gets a list of all current banners</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetBanners
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetBannerStats" id="modGetBannerStats"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetBannerStats</span> (line <span class="line-number">1081</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">gets the click statistics for banner X</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of clicks</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			modGetBannerStats
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>bannerid - id of banner</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetBlogInfo" id="modGetBlogInfo"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetBlogInfo</span> (line <span class="line-number">1551</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get details on a specific blog</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> id, userid, adminid, name, description, members_comment, buddies_comment, members_vote, gui_editor, max_comments, bad_words, title_template, story_template</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetBlogInfo
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with any of the following keys:<br /><ul><li>id - id of blog</li><li>userid - id of user owning blog (if a user blog)</li><li>adminid - id of admin owning blog (if a admin blog)</li><li>name</li><li>description</li><li>members_comment</li><li>buddies_comment</li><li>members_vote</li><li>gui_editor</li><li>max_comments</li><li>bad_words</li><li>title_template</li><li>story_template</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetBlogPost" id="modGetBlogPost"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetBlogPost</span> (line <span class="line-number">1523</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get details on a specific blog post</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> id, userid, adminid, date_posted, title, story, views</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetBlogPost
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with any of the following keys:<br /><ul><li>id - id of blog post</li><li>userid - id of user</li><li>adminid - id of admin</li><li>date_posted</li><li>title</li><li>story</li><li>views</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetCalendars" id="modGetCalendars"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetCalendars</span> (line <span class="line-number">853</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a list of all available calendars</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetCalendars
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetErrorMessage" id="modGetErrorMessage"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetErrorMessage</span> (line <span class="line-number">145</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the current error messages</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetErrorMessage
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetEvents" id="modGetEvents"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetEvents</span> (line <span class="line-number">871</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns a list of all available events for calendar X</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetEvents
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>calendarid - id of calendar</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetLang" id="modGetLang"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetLang</span> (line <span class="line-number">1855</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the language phrase or the entire language array from class's language definitions.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array|string</span>
+		<span class="method-name">
+			modGetLang
+		</span>
+					([<span class="var-type">string|void</span>&nbsp;<span class="var-name">$key1</span> = <span class="var-default">false</span>], [<span class="var-type">string|void</span>&nbsp;<span class="var-name">$key2</span> = <span class="var-default">false</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|void</span>
+				<span class="var-name">$key1</span><span class="var-description">: If blank, returns the whole array.  If a string, returns that phrase</span>			</li>
+					<li>
+				<span class="var-type">string|void</span>
+				<span class="var-name">$key2</span><span class="var-description">: If a string, returns the second dimension of phrase</span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetLoadedLanguage" id="modGetLoadedLanguage"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetLoadedLanguage</span> (line <span class="line-number">945</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the currently loaded language</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			modGetLoadedLanguage
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetLoggedInAdmin" id="modGetLoggedInAdmin"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetLoggedInAdmin</span> (line <span class="line-number">1447</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get data for the currently logged in admin</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetLoggedInAdmin
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetLoggedInUser" id="modGetLoggedInUser"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetLoggedInUser</span> (line <span class="line-number">1436</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get data for the currently logged in user</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> <br />  Example:<br />  Array<br />  (<br />      [id] =&gt; 104<br />      [active] =&gt; 1<br />      [username] =&gt; testuser<br />      [password] =&gt; 179ad45c6ce2cb97cf1029e212046e81<br />      [lastvisit] =&gt; 1154266346<br />      [regdate] =&gt; 1152972184<br />      [level] =&gt; 1 (role id)<br />      [timezone] =&gt; -10.00<br />      [allow_viewonline] =&gt; 1<br />      [rank] =&gt; 1<br />      [email] =&gt; dlhinkley@localhost.localdomain<br />      [country] =&gt; US<br />      [actkey] =&gt; bf45e84c32babfdcb9bce75381b7c8e5<br />      [firstname] =&gt; Test<br />      [lastname] =&gt; USer<br />      [gender] =&gt; M<br />      [lookgender] =&gt; F<br />      [lookagestart] =&gt; 16<br />      [lookageend] =&gt; 90<br />      [address_line1] =&gt; <br />      [address_line2] =&gt; <br />      [state_province] =&gt; AK<br />      [county] =&gt; sadff<br />      [city] =&gt; asdff<br />      [zip] =&gt; 12345<br />      [birth_date] =&gt; 1981-07-15<br />      [lookcountry] =&gt; US<br />      [lookstate_province] =&gt; AA<br />      [lookcounty] =&gt; <br />      [lookcity] =&gt; <br />      [lookzip] =&gt; <br />      [lookradius] =&gt; <br />      [radiustype] =&gt; <br />      [picture] =&gt; 0<br />      [status] =&gt; Active<br />      [levelend] =&gt; 1185113123<br />      [countryname] =&gt; United States<br />      [statename] =&gt; Alaska<br />      [age] =&gt; 25<br />  )<br /></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetLoggedInUser
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetMembershipPriviledges" id="modGetMembershipPriviledges"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetMembershipPriviledges</span> (line <span class="line-number">1173</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">gets the membership settings for any particular level</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> <br />  Example:<br />  Array<br />  (<br />      [id] =&gt; 1<br />      [roleid] =&gt; 1<br />      [name] =&gt; Gold<br />      [chat] =&gt; 1<br />      [forum] =&gt; 1<br />      [blog] =&gt; 1<br />      [poll] =&gt; 1<br />      [includeinsearch] =&gt; 1<br />      [message] =&gt; 1<br />      [message_keep_cnt] =&gt; 0<br />      [message_keep_days] =&gt; 0<br />      [allowim] =&gt; 1<br />      [uploadpicture] =&gt; 1<br />      [uploadpicturecnt] =&gt; 20<br />      [allowalbum] =&gt; 1<br />      [event_mgt] =&gt; 1<br />      [seepictureprofile] =&gt; 1<br />      [favouritelist] =&gt; 1<br />      [sendwinks] =&gt; 1<br />      [extsearch] =&gt; 1<br />      [activedays] =&gt; 365<br />      [fullsignup] =&gt; 1<br />      [price] =&gt; 20.00<br />      [currency] =&gt; USD<br />      [enabled] =&gt; Y<br />  )<br /></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetMembershipPriviledges
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with any of the following keys:<br /><ul><li>roleid - role id</li><li>name - (ex. Gold)</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetNews" id="modGetNews"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetNews</span> (line <span class="line-number">1298</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get all current news items</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetNews
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetPaymentMods" id="modGetPaymentMods"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetPaymentMods</span> (line <span class="line-number">1458</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get information related to the currently-loaded payment modules</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetPaymentMods
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetPicture" id="modGetPicture"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetPicture</span> (line <span class="line-number">694</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Given a picture id, returns the picture</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			modGetPicture
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>id - id of the picture</li><li>type - type of picture ('main' or 'thumbnail')</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetPlugin" id="modGetPlugin"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetPlugin</span> (line <span class="line-number">1570</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get details on a plugin</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> id, name, active</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetPlugin
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with any of the following keys:<br /><ul><li>id - id of plugin</li><li>name - name of plugin</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetPolls" id="modGetPolls"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetPolls</span> (line <span class="line-number">1191</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">gets a list of current polls</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetPolls
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetPollStats" id="modGetPollStats"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetPollStats</span> (line <span class="line-number">1211</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">gets a list of poll statistics for poll X</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetPollStats
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>pollid - id of poll</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetProfile" id="modGetProfile"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetProfile</span> (line <span class="line-number">1635</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a profile matching the search params.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetProfile
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>rand - 1 to return a random profile</li><li>id - return the profile matching this id</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetProfileRatings" id="modGetProfileRatings"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetProfileRatings</span> (line <span class="line-number">1230</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">gets a list of all profile ratings for user X</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetProfileRatings
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid - id of user</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetRow" id="modGetRow"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetRow</span> (line <span class="line-number">2087</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a record from the provided table using the search.  The table  must belong to the plugin or this will return false.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetRow
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$search</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: the name of the table to retrieve</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$search</span><span class="var-description">: keys are field names and the value is the value to match (ex.  to find id of 5 use $search['id'] = 5)</span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetSetting" id="modGetSetting"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetSetting</span> (line <span class="line-number">831</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the value of any particular global configuration setting</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string|int</span>
+		<span class="method-name">
+			modGetSetting
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following key:<br /><ul><li>setting - name of the setting</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetSkinName" id="modGetSkinName"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetSkinName</span> (line <span class="line-number">1843</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the current template skin name</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			modGetSkinName
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodGetTransaction" id="modGetTransaction"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetTransaction</span> (line <span class="line-number">1498</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get payment transaction information for a particular transaction   search by one or many paramaters</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetTransaction
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>invoice_no - invoice number</li><li>user_id - user id</li><li>txn_id - transaction id</li><li>txn_date - transaction date</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetUser" id="modGetUser"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetUser</span> (line <span class="line-number">371</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a user's record</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> <br />  Example:<br />  Array<br />  (<br />      [id] =&gt; 104<br />      [active] =&gt; 1<br />      [username] =&gt; testuser<br />      [password] =&gt; 179ad45c6ce2cb97cf1029e212046e81<br />      [lastvisit] =&gt; 1154266346<br />      [regdate] =&gt; 1152972184<br />      [level] =&gt; 1 (role id)<br />      [timezone] =&gt; -10.00<br />      [allow_viewonline] =&gt; 1<br />      [rank] =&gt; 1<br />      [email] =&gt; dlhinkley@localhost.localdomain<br />      [country] =&gt; US<br />      [actkey] =&gt; bf45e84c32babfdcb9bce75381b7c8e5<br />      [firstname] =&gt; Test<br />      [lastname] =&gt; USer<br />      [gender] =&gt; M<br />      [lookgender] =&gt; F<br />      [lookagestart] =&gt; 16<br />      [lookageend] =&gt; 90<br />      [address_line1] =&gt; <br />      [address_line2] =&gt; <br />      [state_province] =&gt; AK<br />      [county] =&gt; sadff<br />      [city] =&gt; asdff<br />      [zip] =&gt; 12345<br />      [birth_date] =&gt; 1981-07-15<br />      [lookcountry] =&gt; US<br />      [lookstate_province] =&gt; AA<br />      [lookcounty] =&gt; <br />      [lookcity] =&gt; <br />      [lookzip] =&gt; <br />      [lookradius] =&gt; <br />      [radiustype] =&gt; <br />      [picture] =&gt; 0<br />      [status] =&gt; Active<br />      [levelend] =&gt; 1185113123<br />      [countryname] =&gt; United States<br />      [statename] =&gt; Alaska<br />      [age] =&gt; 25<br />  )<br /></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetUser
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following key:<br /><ul><li>userid - user id of the users record to get</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodGetUserTransactions" id="modGetUserTransactions"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modGetUserTransactions</span> (line <span class="line-number">1475</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get all transactions for a particular user</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			modGetUserTransactions
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid - id of user</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodHasPermission" id="modHasPermission"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modHasPermission</span> (line <span class="line-number">207</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">check to see if the user has permission to access resource X</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modHasPermission
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid - user id of the user to logout</li><li>resource - name of the resource one of ( chat, forum, blog, poll, includeinsearch, message, message_keep_days, allowim, uploadpicture, uploadpicturecnt, allowalbum, event_mgt, seepictureprofile, favouritelist, sendwinks, extsearch, fullsignup)</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodIsBanned" id="modIsBanned"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modIsBanned</span> (line <span class="line-number">577</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">check to see if user X is banned for user Y</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true for banned false for not banned</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modIsBanned
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>type - type of ban to check, B for ban, H for hotlist, F for buddy</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodIsFeatured" id="modIsFeatured"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modIsFeatured</span> (line <span class="line-number">979</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">determines if a user's profile is featured</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True if featured.  False if not featured.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modIsFeatured
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid - user id</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodIsLoggedIn" id="modIsLoggedIn"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modIsLoggedIn</span> (line <span class="line-number">157</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">check to see if user with id is logged in</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True if logged in.  False if not logged in.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modIsLoggedIn
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys: <br /><ul><li>userid - the user id of the user</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodIsZipLoaded" id="modIsZipLoaded"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modIsZipLoaded</span> (line <span class="line-number">1366</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">determines if a zip code CSV file is loaded for a country</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modIsZipLoaded
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>countrycode - two letter country code</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodLogout" id="modLogout"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modLogout</span> (line <span class="line-number">178</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">logout the current user</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modLogout
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid - the user id of the user to logout</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodMakeFeatured" id="modMakeFeatured"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modMakeFeatured</span> (line <span class="line-number">1041</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">sets/unsets a user's profile as featured</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modMakeFeatured
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid</li><li>start_date - year-mo-day (ex 2006-07-15)</li><li>end_date -  year-mo-day (ex 2006-07-15)</li><li>must_show - 1 or 0</li><li>req_exposures  - required exposures</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodRemoveAlbum" id="modRemoveAlbum"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modRemoveAlbum</span> (line <span class="line-number">790</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">remove album X from the user's albums</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modRemoveAlbum
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>album - name of album</li><li>userid - user id of user the album belongs</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodRemoveBlogComment" id="modRemoveBlogComment"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modRemoveBlogComment</span> (line <span class="line-number">1618</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">remove a specific blog comment</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modRemoveBlogComment
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>id - id of comment</li><li>userid - id of user owning comment (if user blog)</li><li>adminid - id of admin owning comment (if admin blog)</li><li>blogid - id of blog the comment belongs to</li><li>datetime</li><li>comment</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodRemoveBlogPost" id="modRemoveBlogPost"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modRemoveBlogPost</span> (line <span class="line-number">1594</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">remove a specific blog post</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modRemoveBlogPost
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with any of the following keys:<br /><ul><li>id - id of post</li><li>userid - id of user owning post (if user post)</li><li>adminid - id of admin owning post (if adming post)</li><li>date_posted</li><li>title</li><li>story</li><li>views</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodRemovePicture" id="modRemovePicture"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modRemovePicture</span> (line <span class="line-number">729</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Given a picture id, remove the picture from the users album</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modRemovePicture
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>id  - id of the picture</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodSendMail" id="modSendMail"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modSendMail</span> (line <span class="line-number">1761</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">send an email</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modSendMail
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys: <br /><ul><li>message - can be a templated message using user parameters in #  (i.e. #firstname#, #country#))</li><li>rcvuserid - userid of member to receive message.</li><li>snduserid - userid of member to seend message (optional).</li><li>subject - message subject.</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodSendMessage" id="modSendMessage"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modSendMessage</span> (line <span class="line-number">1674</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">send a message to a single user or group of users</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modSendMessage
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>message - can be a templated message using user parameters in # (i.e. #firstname#, #country#))</li><li>rcvuserid - userid of member to receive message.</li><li>snduserid - userid of member to send message.</li><li>subject - message subject.</li><li>notify - set to true to notify sender when read</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodSendWink" id="modSendWink"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modSendWink</span> (line <span class="line-number">273</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">send a wink to a single user or group of users</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modSendWink
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>from_userid - the user id the wink is from</li><li>to_userid the user id the wink is for</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodSetBan" id="modSetBan"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modSetBan</span> (line <span class="line-number">484</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">set a ban of user X for user Y</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modSetBan
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>userid - user id of the user to ban</li><li>ref_userid - the user id of the refering user</li><li>action - B for ban, H for hotlist, F for buddy</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodSetLoadedLanguage" id="modSetLoadedLanguage"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modSetLoadedLanguage</span> (line <span class="line-number">964</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">sets the currently loaded language</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			modSetLoadedLanguage
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>language - dutch ,french ,greek ,portuguese ,russian ,turkish ,english ,german  ,romanian or spanish</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodSetNews" id="modSetNews"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modSetNews</span> (line <span class="line-number">1342</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">sets the current news list (all at once).<br /></p>
+<p class="description"><p>data provided in a multidensional array of the format:<br /> <br />  $news = array (<br /> <ol><li>=&gt;<br /></li></ol>   array (<br />      'date' =&gt; '1119770866',<br />      'header' =&gt; 'Internet Dating More Successful than Thought',<br />      'text' =&gt; 'Internet dating is proving a much more successful way to find long-term romance and friendship for thousands of people than was previously thought, new research shows.',<br />    ),<br /> <ol><li>=&gt;<br /></li></ol>   array (<br />      'date' =&gt; '1119770969',<br />      'header' =&gt; 'New Dating Guide for Seniors',<br />      'text' =&gt; 'Are you over age 65, single and thinking about entering the dating world?<br />  ',<br />  <br />    ),<br />    2 =&gt;<br />    array (<br />      'date' =&gt; '1237834800',<br />      'header' =&gt; 'Women More Likely to Snoop Than Men',<br />      'text' =&gt; 'In the new film, Little Black Book, Brittany Murphy\'s character engages in some high-tech snooping on her new boyfriend. ',<br />    ),<br />  );<br /></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True on success.  False on failure.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			modSetNews
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$param</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$param</span><span class="var-description">: an associative array with the following keys:<br /><ul><li>date -  Unix timestamp</li><li>header</li><li>text</li></ul></span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodSiteUrl" id="modSiteUrl"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modSiteUrl</span> (line <span class="line-number">1739</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the site home url</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the site home url</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			modSiteUrl
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodmodSmartyAssign" id="modSmartyAssign"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">modSmartyAssign</span> (line <span class="line-number">2073</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Assigns a varible for use in smarty templates</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			modSmartyAssign
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$variable</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$filename</span><span class="var-description">: the relative filename of the template file.</span>			</li>
+				</ul>
+
+
+	</div>
+<a name="methodmodSmartyFetch" id="modSmartyFetch"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">modSmartyFetch</span> (line <span class="line-number">2059</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a parsed Smarty template from this plugins template directory</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			modSmartyFetch
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$filename</span><span class="var-description">: the relative filename of the template file.</span>			</li>
+				</ul>
+
+
+	</div>
+
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 31 Jul 2006 10:26:07 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,27 @@
+{strip}
+<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+	<tr>
+		<td class="calendar_module_detail" width="100%" height="85" valign="top">
+			{include file="calendar_monthday_head.tpl"}
+			<table width="100%" border="0" class="{if $item.date.mon == $cur_date.mon}current_monthday{else}other_monthday{/if}">
+				<tr>
+					<td valign="top" height="50" width=100%>
+					{foreach item=event key=ekey from=$item.events}
+						<a href="#" onclick="javascript: mainLink('event.php?calendarid={$calendarid}&amp;event_id={$event.id}'); return(false);" >{$event.event|truncate:"16"}</a><br />
+					{/foreach}
+					{if $item.more_events}
+						<a href="#" onclick="javascript: mainLink('moreevents.php?calendarid={$calendarid}&amp;timestamp={$item.timestamp}'); return(false);" >{lang mkey='more_events'}</a><br />
+					{/if}
+					</td>
+				</tr>
+				<tr>
+					<td height="10" align="right">
+						<a href="#" onclick="javascript: mainLink('event.php?calendarid={$calendarid}&amp;insert=true&amp;timestamp={$item.timestamp}'); return(false);"><img src="{$image_dir}new.gif" alt="{lang mkey='add_event'}" width="14" height="9" border="0" /></a>
+					</td>
+				</tr>
+			</table>
+
+		</td>
+	</tr>
+</table>
+{/strip}
