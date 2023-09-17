@@ -1,0 +1,95 @@
+###############################
+# Place this file in your osDate root directory
+###############################
+
+################################
+#  Add/remove file types you need to restrict access
+################################
+
+# Protect .htaccess and .htpasswd files
+<FilesMatch "^\.ht">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Protect config.* files
+<FilesMatch "^config(\..*)?$">
+  Order deny,allow
+  Deny from all
+</FilesMatch>
+
+# Protect files depending on extension
+<FilesMatch "^(.*)\.(inc|inc\.php|tpl|tpl\.php|sql|txt|dat|csv|exe|dll)$">
+  Order deny,allow
+  Deny from all
+</FilesMatch>
+
+# Disable directory browsing
+Options -Indexes
+Options +FollowSymLinks
+
+###############################
+
+RewriteEngine on
+
+# Replace with site url prefix. If osdate is in your site root, set this to just / symbol
+# If osdate is in a subdirectory, set to /subdirectory/
+
+RewriteBase /osDate_v2.5/
+
+RewriteRule ^privacy.html$ index.php?page=privacy
+RewriteRule ^terms_of_use.html$ index.php?page=terms_of_use
+RewriteRule ^services.html$ index.php?page=services
+RewriteRule ^faq.html$ index.php?page=faq
+
+RewriteRule ^stories.html$ index.php?page=stories
+RewriteRule ^story([^/]+).htm$ index.php?page=showstory&storyid=$1
+
+RewriteRule ^articles.html$ index.php?page=articles
+RewriteRule ^article([^/]+).htm$ index.php?page=showarticle&articleid=$1
+
+RewriteRule ^news([^/]+).htm$ index.php?page=shownews&newsid=$1
+RewriteRule ^allnews.html$ index.php?page=allnews
+
+# Translates sitename/username to sitename/showprofile.php?username=username
+RewriteRule ^([a-zA-Z0-9_-]+)$ showprofile.php?username=$1
+
+# Translates {$id}.htm to showprofile.php?id={$id}
+RewriteRule ^([^/]+).htm$ showprofile.php?id=$1
+
+##############################################################
+# Following code may be used as separate .htaccess file and
+# keep in those folders which you want to restrict access 
+# Uncomment the lines <Files ~ > to </Files>
+##############################################################
+# - uservideos
+# - zipcodes
+#
+# Do NOT place this file in the following subdirectories:
+# - admin	(need to run the php-scripts)
+# - images	(images are directly accessed from smarty templates)
+# - javascript	(need to run the js-files)
+# - templates	(need to access the css-files. tpl-files are protected by .htaccess in root)
+#
+# Yet to test:
+# - banners
+# - chat
+# - cronjobs
+# - emailimages
+# - forum
+# - icons
+# - imgEditor
+# - modules
+# - mpeg2flv
+# - php121
+# - plugins
+# - videos
+###############################
+#
+# Protect all files
+# <Files ~ >
+#   Order deny,allow
+#   Deny from all
+# </Files>
+#
+###############################
